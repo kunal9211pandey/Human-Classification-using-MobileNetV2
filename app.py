@@ -332,14 +332,9 @@ st.markdown("""
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
-# ── MODEL PATH ──
-st.markdown('<div class="model-section">', unsafe_allow_html=True)
-model_path = st.text_input(
-    "Model File Path (.h5)",
-    value="gender_classifier.h5",
-    placeholder="e.g.  C:/Users/YourName/Downloads/gender_classifier.h5"
-)
-st.markdown('</div>', unsafe_allow_html=True)
+# Model hardcoded — .h5 file repo ke saath same folder mein honi chahiye
+MODEL_PATH = "gender_classifier.h5"
+model_path = MODEL_PATH
 
 # ── IMAGE UPLOAD ──
 st.markdown('<div class="upload-section">', unsafe_allow_html=True)
