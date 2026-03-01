@@ -340,7 +340,7 @@ model_path = MODEL_PATH
 st.markdown('<div class="upload-section">', unsafe_allow_html=True)
 uploaded_file = st.file_uploader(
     "Upload Image",
-    type=["jpg", "jpeg", "png", "webp"],
+    type=["jpg", "jpeg", "jfif", "png", "webp", "bmp"],
     label_visibility="visible"
 )
 st.markdown('</div>', unsafe_allow_html=True)
