@@ -1,10 +1,8 @@
 import streamlit as st
 import numpy as np
-import cv2
 from PIL import Image
 import tensorflow as tf
 from tensorflow.keras.models import load_model
-import io
 import os
 
 # ─────────────────────────────────────────
@@ -302,10 +300,10 @@ def load_gender_model(path):
 #  PREDICT FUNCTION
 # ─────────────────────────────────────────
 def predict_gender(image: Image.Image, model):
-    img = np.array(image.convert("RGB"))
-    img_resized = cv2.resize(img, (224, 224))
-    img_normalized = img_resized / 255.0
-    img_input = np.expand_dims(img_normalized, axis=0)
+    # Pure Pillow se resize — cv2 ki zaroorat nahi
+    img = image.convert("RGB").resize((224, 224))
+    img_array = np.array(img) / 255.0
+    img_input = np.expand_dims(img_array, axis=0)
 
     pred = model.predict(img_input, verbose=0)[0][0]
 
